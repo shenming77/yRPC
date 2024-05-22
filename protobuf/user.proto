@@ -1,0 +1,34 @@
+//指定protobuf的版本
+syntax = "proto3";
+
+// 指定生成的namespace 
+package fixbug;
+
+// 开启生成 service服务类和rpc方法描述
+option cc_generic_services = true;
+
+message ResultCode
+{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+message LoginRequest
+{
+    bytes name = 1;
+    bytes pwd = 2;
+}
+
+// 定义消息类型
+message LoginResponse
+{
+    ResultCode result = 1;
+    bool sucess = 2;
+}
+
+// 在protobuf中定义描述rpc方法的类型
+service UserServiceRpc
+{
+    rpc Login(LoginRequest) returns(LoginResponse);
+
+}

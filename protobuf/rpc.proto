@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package rpc;
+
+message RpcRequestData {
+	string method_path = 1;
+	uint64 call_address = 2;
+	bytes content = 3; 
+}
+
+message RpcResponseData {
+	uint64 call_address = 1;
+	bytes content = 2;
+}
