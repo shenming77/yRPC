@@ -157,6 +157,7 @@ void RpcClient::CloseConn_(int fd) {
     std::unique_lock<std::shared_mutex> locker(mutex_);
     auto&& method = std::move(*fd_find[fd]);
     methodPath2fd[method.second].erase(fd_find[fd]);
+    fd_find.erase(fd);
     if(methodPath2fd[method.second].empty())methodPath_curfd.erase(method.second);
     locker.unlock();
 
