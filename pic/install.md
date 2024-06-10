@@ -28,6 +28,8 @@ RPC（Remote Procedure Call Protocol）远程过程调用协议。
 user 就是发起 RPC 调用的 client ，当 user 想发起一个远程调用时，它实际是通过本地调用 user-stub。 user-stub 负责将调用的接口、方法和参数通过约定的协议规范进行编码并通过本地的 RPCRuntime 实例传输到远端的实例。远端 RPCRuntim 实例收到请求后交给 server-stub 进行解码后发起本地端调用，调用结果再返回给 user 端。
 
 
+## [protobuf](https://developer.baidu.com/article/detail.html?id=2864926)
+
 ## [分布式系统](https://cloud.tencent.com/developer/article/1860632)存在的问题
 
 **服务的动态注册和实现**,不同的rpc服务节点(ip和port不同)提供不同的服务,客户端想要调用某个rpc服务节点提供的服务则必须知道该节点的ip和port;若只是简单的将rpc服务节点地址及其服务名组成的列表存入客户端(在配置文件中写死)，将无法应对rpc服务节点的灵活变动，例如有些rpc服务节点down掉了、新增了一个服务节点。
